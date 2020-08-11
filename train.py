@@ -25,6 +25,7 @@ parser.add_argument("--p_lr", type=float, help="policy learning rate", default=7
 parser.add_argument("--v_lr", type=float, help="value function learning rate", default=1e-4)
 parser.add_argument("--n_epochs", type=int, help="PPO # epochs", default=4)
 parser.add_argument("--eps_clip", type=float, help="PPO eps clip", default=0.1)
+parser.add_argument("--entropy_coeff", type=float, help="PPO entropy coeff", default=0.01)
 parser.add_argument("--damping_coeff", type=float, help="TRPO damping coef for hessian maxtir", default=0.1)
 parser.add_argument("--cg_iters", type=int, help="TRPO # of iteration for conjugate gradient method", default=10) 
 parser.add_argument("--backtrack_iters", type=int, help="TRPO # of iteraction for backtrack search", default=10) 
@@ -75,7 +76,8 @@ def train(seed: int, seed_dir: str):
 			p_lr=args.p_lr,
 			v_lr=args.v_lr,
 			n_epochs=args.n_epochs,
-			eps_clip=args.eps_clip
+			eps_clip=args.eps_clip,
+			entropy_coeff=args.entropy_coeff
 		)
 	elif args.algo == "TRPO":
 		algo = algos.TRPO(

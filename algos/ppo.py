@@ -3,7 +3,8 @@ from torch.distributions import Categorical
 
 class PPO(Base):
 	def __init__(self, input_dim: int, hidden_dim: int, output_dim: int, 
-		p_lr: float=7e-4, v_lr: float=1e-4, n_epochs: int=4, eps_clip: float=0.2):
+		p_lr: float=7e-4, v_lr: float=1e-4, n_epochs: int=4, 
+		eps_clip: float=0.2, entropy_coeff: float=0.01):
 		
 		super(PPO, self).__init__(
 			input_dim=input_dim, 
@@ -21,6 +22,7 @@ class PPO(Base):
 		# additional parameters to ppo
 		self.n_epochs = n_epochs
 		self.eps_clip = eps_clip
+		self.entropy_coeff = entropy_coeff
 
 
 	def update(self, buff):
@@ -38,15 +40,12 @@ class PPO(Base):
 			old_prob = torch.gather(old_dist, 1, a).squeeze(1)
 
 		for k in range(self.n_epochs):
-			# initalize loss
-			actor_loss  = 0 
-			critic_loss = 0
-
 			# pass state through actor and 
 			# select the appropriate action
 			logits = self.actor(s)
 			dist = F.softmax(logits, dim=1)
 			prob = torch.gather(dist, 1, a).squeeze(1)
+			cat_dist = Categorical(logits=logits)
 
 			# pass state throgh critic
 			values = self.critic(s).squeeze(1)
@@ -56,8 +55,8 @@ class PPO(Base):
 			adv = rg - baseline
 			ratio1 = prob / old_prob.detach()
 			ratio2 = torch.clamp(ratio1, 1 - self.eps_clip, 1 + self.eps_clip)
-			actor_loss -=  torch.min(ratio1 * adv, ratio2 * adv)
-			critic_loss += (values - rg)**2
+			actor_loss = -torch.min(ratio1 * adv, ratio2 * adv) - self.entropy_coeff * cat_dist.entropy()
+			critic_loss = (values - rg)**2
 
 			# optimization step
 			self.optim_actor.zero_grad()

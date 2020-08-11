@@ -21,9 +21,6 @@ class REINFORCE(Base):
 		r  = buff.get_rewards()
 		rg = buff.get_rewards2go()
 
-		# initalize loss
-		actor_loss  = 0 
-		critic_loss = 0
 
 		# pass state through actor and 
 		# select the appropriate action
@@ -36,8 +33,8 @@ class REINFORCE(Base):
 
 		# update loss
 		baseline = values.detach()
-		actor_loss -= log_prob * (rg - baseline) 
-		critic_loss += (values - rg)**2
+		actor_loss = -log_prob * (rg - baseline) 
+		critic_loss = (values - rg)**2
 
 		# optimization step
 		self.optim_actor.zero_grad()

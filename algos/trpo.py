@@ -37,10 +37,6 @@ class TRPO(Base):
 		r  = buff.get_rewards()
 		rg = buff.get_rewards2go()
 
-		# initalize loss
-		actor_loss  = 0 
-		critic_loss = 0
-
 		# pass state through actor and 
 		# select the appropriate action
 		logits   = self.actor(s)
@@ -81,7 +77,7 @@ class TRPO(Base):
 		self.old_actor.load_state_dict(self.actor.state_dict())
 
 		# optimization step for critic
-		critic_loss += (values - rg)**2
+		critic_loss = (values - rg)**2
 		self.optim_critic.zero_grad()
 		critic_loss.mean().backward()
 		self.optim_critic.step()
