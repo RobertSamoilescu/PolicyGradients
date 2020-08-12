@@ -21,7 +21,30 @@ Pytorch single thread implementation of REINFORCE, Trust Region Policy Optimizat
 </p>
 
 ## Train
+```shell
+python train.py \
+  --alog TRPO \
+  --seeds 10 20 30 \
+  --env_name LunarLander-v2 \
+```
+
 
 ## Test
+```shell
+python test.py \
+  --algo PPO \
+  --env_name Acrobot-v1 \
+  --seed 10
+```
 
 ## Plot
+```shell
+python plot.py \
+  --alogs REINFORCE PPO TRPO \
+  --env_name LunarLander-v2
+```
+
+## References
+<a href="https://papers.nips.cc/paper/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation.pdf"> REINFORCE </a>
+<a href="https://arxiv.org/abs/1707.06347.pdf"> Proximal Policy Optimization </a>
+<a href="https://arxiv.org/abs/1502.05477.pdf"> Trust Region Policy Optimization </a>
