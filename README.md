@@ -10,18 +10,14 @@ Pytorch single thread implementation of REINFORCE, Trust Region Policy Optimizat
 
 ## Acrobot-v1
 <p align="center">
-  <img src="GIFs/Acrobot-v1_TRPO_10.gif" alt="Acrobot-v1"/>
-</p>
-<p align="center">
-  <img src="GIFs/Acrobot-v1.png" alt="comparison Acrobot"/>
+  <img src="GIFs/Acrobot-v1_TRPO_10.gif" alt="Acrobot-v1" height=300 style="float:left"/>
+  <img src="GIFs/Acrobot-v1.png" alt="comparison Acrobot" height=350/>
 </p>
 
 ## CartPole-v0
 <p align="center">
-  <img src="GIFs/CartPole-v0_TRPO_10.gif" alt="CartPole-v0"/>
-</p>
-<p align="center">
-  <img src="GIFs/CartPole-v0.png" alt="comparison CartPole"/>
+  <img src="GIFs/CartPole-v0_TRPO_10.gif" alt="CartPole-v0" height=300 style="float:left"/>
+  <img src="GIFs/CartPole-v0.png" alt="comparison CartPole" height=350/>
 </p>
 
 ## Train
