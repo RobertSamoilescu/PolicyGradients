@@ -20,7 +20,7 @@ parser.add_argument("--algo", type=str, help="algorithm: [REINFORCE, TRPO, PPO]"
 parser.add_argument("--seeds", type=int, nargs="+", default=[10, 20, 30])
 parser.add_argument("--env_name", type=str, help="envrionment's name", default="LunarLander-v2")
 parser.add_argument("--horizon", type=int, help="maximum number of steps per environment", default=512)
-parser.add_argument("--hidden_dim", type=int, help="number of nodes in hidden layer", default=64)
+parser.add_argument("--hidden_dim", type=int, help="number of nodes in hidden layer", default=32)
 parser.add_argument("--p_lr", type=float, help="policy learning rate", default=7e-4)
 parser.add_argument("--v_lr", type=float, help="value function learning rate", default=1e-4)
 parser.add_argument("--n_epochs", type=int, help="PPO # epochs", default=4)

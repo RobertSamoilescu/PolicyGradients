@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--env_name", type=str, default="CartPole-v0")
 parser.add_argument("--algos", nargs="+", type=str, default=["REINFORCE", "PPO", "TRPO"])
 parser.add_argument("--steps_int", type=int, default=1000)
-parser.add_argument("--n_steps", type=int, default=100000)
+parser.add_argument("--n_steps", type=int, default=1000000)
 args = parser.parse_args()
 
 
