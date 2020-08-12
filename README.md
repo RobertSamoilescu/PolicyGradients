@@ -45,6 +45,8 @@ python plot.py \
 ```
 
 ## References
-<a href="https://papers.nips.cc/paper/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation.pdf"> REINFORCE </a>
-<a href="https://arxiv.org/abs/1707.06347.pdf"> Proximal Policy Optimization </a>
-<a href="https://arxiv.org/abs/1502.05477.pdf"> Trust Region Policy Optimization </a>
+<ul>
+  <li> <a href="https://papers.nips.cc/paper/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation.pdf"> REINFORCE </a> </li>
+  <li> <a href="https://arxiv.org/abs/1707.06347.pdf"> Proximal Policy Optimization </a> </li>
+  <li> <a href="https://arxiv.org/abs/1502.05477.pdf"> Trust Region Policy Optimization </a> </li>
+</ul>
