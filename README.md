@@ -23,7 +23,7 @@ Pytorch single thread implementation of REINFORCE, Trust Region Policy Optimizat
 ## Train
 ```shell
 python train.py \
-  --alog TRPO \
+  --algo TRPO \
   --seeds 10 20 30 \
   --env_name LunarLander-v2 \
 ```
@@ -40,7 +40,7 @@ python test.py \
 ## Plot
 ```shell
 python plot.py \
-  --alogs REINFORCE PPO TRPO \
+  --algos REINFORCE PPO TRPO \
   --env_name LunarLander-v2
 ```
 
