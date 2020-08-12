@@ -4,8 +4,8 @@ Pytorch single thread implementation of REINFORCE, Trust Region Policy Optimizat
 
 ## LunarLander-v2
 <p align="center">
-  <img src="GIFs/LunarLander-v2_TRPO_10.gif" alt="LunarLander gif" width=350 style="float:left"/>
-  <img src="GIFs/LunarLander-v2.png" alt="comparison LunarLander" width=450/>
+  <img src="GIFs/LunarLander-v2_TRPO_10.gif" alt="LunarLander gif" height=350 style="float:left"/>
+  <img src="GIFs/LunarLander-v2.png" alt="comparison LunarLander" height=350/>
 </p>
 
 ## Acrobot-v1
