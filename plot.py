@@ -53,5 +53,7 @@ if __name__ == "__main__":
 
 	df = pd.DataFrame.from_dict(data)
 	sns.lineplot(x=data["steps"], y=data["scores"], hue=data["algo"], ci="sd")
+	plt.xlabel("step")
+	plt.ylabel("score")
 	plt.title(args.env_name)
 	plt.show()

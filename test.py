@@ -10,7 +10,7 @@ import numpy as np
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--env_name", type=str, help="name of the environment")
-parser.add_argument("--algo", type=str, help="algorithm used: [REINFROCE, PPO, TRPO]")
+parser.add_argument("--algo", type=str, help="algorithm used: [REINFROCE, PPO, TRPO]", default="TRPO")
 parser.add_argument("--hidden_dim", type=int, help="hidden dimension of the network", default=32)
 parser.add_argument("--seed", type=int, help="seed to be tested (need to have a model trained with this seed)")
 parser.add_argument("--n_episodes", type=int, help="# of episodes to test the policy", default=10)
@@ -28,7 +28,7 @@ def process_images(imgs: list):
 		os.makedirs("GIFs")
 
 	path = os.path.join("GIFs", "%s_%s_%s.gif" % (args.env_name, args.algo, str(args.seed)))
-	imgs[0].save(path, save_all=True, append_images=imgs[1:])
+	imgs[0].save(path, save_all=True, append_images=imgs[1:], duration=50, loop=0)
 
 
 def test():
